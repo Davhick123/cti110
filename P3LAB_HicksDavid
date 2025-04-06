@@ -1,0 +1,27 @@
+amount = float(input("Enter the amount of money as a float: $"))
+
+cents = round(amount * 100)
+
+denominations = {
+    "Dollar": 100,
+    "Quarter": 25,
+    "Dime": 10,
+    "Nickel": 5,
+    "Penny": 1
+}
+
+output = []
+
+for name, value in denominations.items():
+    count = cents // value  # Use floor division to get the count
+    cents %= value  # Update the remaining cents
+    
+    if count > 0:
+        output.append(f"{count} {name + ('s' if count > 1 else '')}")
+
+if output:
+    print("\n".join(output))
+else:
+    print("No change")
+
+  
